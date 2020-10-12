@@ -4,24 +4,26 @@
     <meta charset="utf-8">
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
     <script src="ejemplo1.js"></script>
     <title>EJEMPLO 1 CON A-FRAME</title>
   </head>
   <body>
     <a-scene foo>
+    <a-box id="caja" src="#texture3" position="-1 0.5 -3" rotation="0 45 0"></a-box>
       <a-entity id="camera" look-controls cursor="rayOrigin: mouse" wasd-controls="acceleration: 400"></a-entity>
       <a-assets>
         <img id="texture1" src="cielo.jpg">
         <img id="texture2" src="cesped.jpg">
         <img id="texture3" src="crate.png">
       </a-assets>
-      <a-box id="caja" src="#texture3" position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E">
-        <a-ring position="0 0 0" color="#EF2D5E" radius-inner="2" radius-outer="3" scale-on-mouseenter></a-ring>
+      <a-entity environment="preset: forest; dressingAmount: 500"></a-entity>
+      <a-box id="caja" src="#texture3" position="-1 0.5 -3" rotation="0 45 0"></a-box>
+      <a-box id="caja" src="#texture3" position="-3 0.5 -3" rotation="0 45 0"></a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" change-color-on-hover="color: purple">
+        <a-ring position="0 0 0" color="#EF2D5E" radius-inner="2" radius-outer="3" change-color-on-hover="color: purple"></a-ring>
       </a-sphere>
       <a-cylinder id="polygon" position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" change-color-on-hover="color: blue"></a-cylinder>
-      <a-plane id="suelo" src="#texture2" position="0 0 -4" rotation="-90 0 0" width="50" height="50" repeat="20 20"></a-plane>
-      <a-sky src="#texture1" color="#4CC3E9"></a-sky>
       <a-camera look-controls wasd-controls="acceleration: 400"></a-camera>
     </a-scene>
   </body>

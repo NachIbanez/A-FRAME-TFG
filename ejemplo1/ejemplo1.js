@@ -30,21 +30,18 @@ AFRAME.registerComponent('foo', {
         init: function () {
           // Jugar con las entidades de la escena
           var sceneEl = document.querySelector('a-scene');
-          var boxEl = document.querySelector('#caja');
-          console.log(sceneEl);
-          console.log(sceneEl.querySelectorAll('a-entity'));
-          console.log(sceneEl.querySelector('a-box'));
+          var boxEl = sceneEl.querySelector('#caja');
+
           console.log(sceneEl.querySelectorAll('a-sphere, a-cylinder'));
           console.log(sceneEl.querySelectorAll('#polygon'));
 
-          sceneEl.addEventListener('click', function () {
+          boxEl.addEventListener('click', function () {
             var condition1 = boxEl.getAttribute('animation');
             console.log(condition1 == null)
             if (condition1 == null){
                 boxEl.setAttribute('animation', "property: position; from: -1 0.5 -3; to: -1 1.5 -3; dir: alternate; loop: true");
             }else{
                 boxEl.removeAttribute('animation');
-                posicion_actual = boxEl.getAttribute('position');
             };
           });
         }
